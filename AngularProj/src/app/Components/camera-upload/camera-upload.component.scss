@@ -1,0 +1,69 @@
+.actionBtn {
+	font-size: 4em;
+	cursor: pointer;
+}
+
+.snapshot {
+	text-align: center;
+}
+
+ul.links {
+	padding-bottom: 20px;
+}
+
+img {
+	max-width: 450px;
+	max-height: 450px;
+	margin-left: 300px;
+}
+
+.actionBtn {
+	margin: 10px 20px 10px 10px;
+}
+
+.checkImg {
+	position: absolute;
+	top: 50%;
+}
+
+#yesBtn {
+	left: 90%;
+}
+
+#noBtn {
+	left: 10%;
+}
+
+div.actionBtn {
+	height: 50px;
+}
+
+.doneBtn {
+	position: absolute;
+	margin-bottom: 70px;
+	top: 90%;
+}
+
+#app {
+	text-align: center;
+	color: #2c3e50;
+	margin-top: 60px;
+}
+
+#video {
+	background-color: #000000;
+}
+
+video {
+	display: block;
+	margin-left: 233px;
+	width: 500px;
+	height: 330px;
+}
+
+canvas {
+	display: block;
+	margin-left: 233px;
+	width: 500px;
+	height: 330px;
+}

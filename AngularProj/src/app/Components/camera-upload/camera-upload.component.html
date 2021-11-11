@@ -1,0 +1,23 @@
+<div style="text-align:center">
+    <div>
+        <div id="app">
+            <div>
+                <!-- WebCam video -->
+                <video [style.display]="IsVisible ? 'none' : 'block'" #video id="video" width="640" height="480"
+                    autoplay></video>
+            </div>
+            <div>
+                <!-- Snap button -->
+                <div [style.display]="IsVisible ? 'none' : 'block'" class="actionBtn" id="snap" (click)="capture()"
+                    title="Take Picture">📸</div>
+            </div>
+            <!-- Display the snaped image -->
+            <canvas #canvas id="canvas" [style.display]="IsVisible ? 'block' : 'none'" width="640"
+                height="480"></canvas>
+        </div>
+
+    </div>
+</div>
+<!-- Buttons for Dialog -->
+<button pButton type="button" label="Yes" (click)="savePic()" *ngIf="IsVisible" class="checkImg" id="yesBtn"></button>
+<button pButton type="button" label="No" (click)="newPic()" *ngIf="IsVisible" class="checkImg" id="noBtn"></button>

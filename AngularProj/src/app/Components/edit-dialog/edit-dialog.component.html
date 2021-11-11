@@ -1,0 +1,73 @@
+<mat-grid-list cols="4" rowHeight="100px">
+    <!-- Name and secription -->
+    <mat-grid-tile colspan="3" rowspan="1">
+        <div id="inputEditDiv">
+            <span class="p-float-label">
+                <input id="name-float-input" type="text" pInputText value="{{name}}">
+                <label for="float-input">name</label>
+            </span>
+            <br />
+            <span id="descInput" class="p-float-label">
+                <input id="desc-float-input" type="text" pInputText value="{{caption}}">
+                <label for="float-input">Description</label>
+            </span>
+        </div>
+    </mat-grid-tile>
+    <!-- Image -->
+    <mat-grid-tile colspan="1" rowspan="2">
+        <img id="popupImg" [src]="imgSrc" />
+    </mat-grid-tile>
+    <!-- Favorite and Private -->
+    <mat-grid-tile colspan="1" rowspan="1">
+
+        <div (click)="toggelFavorite()">
+            <!-- Show filled icon -->
+            <ng-container *ngIf="favorite">
+                <button id="favorite-input" pButton pRipple type="button" icon="pi pi-star"
+                    class="p-button-rounded p-button-text"></button>
+            </ng-container>
+            <!-- Show empty icon -->
+            <ng-container *ngIf="!favorite">
+                <button id="favorite-input" pButton pRipple type="button" icon="pi pi-star-o"
+                    class="p-button-rounded p-button-text"></button>
+            </ng-container>
+            <label for="favorite-input">Favorite</label>
+        </div>
+
+        <div (click)="toggelprivate()">
+            <!-- Show close icon -->
+            <ng-container *ngIf="privateMode">
+                <button id="private-input" pButton pRipple type="button" icon="pi pi-lock"
+                    class="p-button-rounded p-button-text"></button>
+            </ng-container>
+            <!-- Show open icon -->
+            <ng-container *ngIf="!privateMode">
+                <button id="private-input" pButton pRipple type="button" icon="pi pi-lock-open"
+                    class="p-button-rounded p-button-text"></button>
+            </ng-container>
+            <label for="favorite-input">privateMode</label>
+        </div>
+    </mat-grid-tile>
+    <!-- Categories and map -->
+    <mat-grid-tile colspan="2" rowspan="1">
+        <!-- Categories -->
+        <div id="categoriesDiv">categories:
+            <p-multiSelect [options]="categoryList" [(ngModel)]="selectedCategories" defaultLabel="Select a category"
+                optionLabel="name" display="chip"></p-multiSelect>
+        </div>
+        <br />
+        <!-- Map -->
+        <div id="locationsDiv">location:
+            <button id="mapBtn" pButton pRipple type="button" icon="pi pi-map" (click)="display = true">Open
+                Map</button>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+<!-- Change button -->
+<p-button icon="pi pi-check" (click)="submitChanges()" label="Save changes" styleClass="p-button-text">
+</p-button>
+<!-- Map dialog -->
+<p-dialog [modal]="true" [draggable]="false" [resizable]="false" id="mapDiaog" header="Map" [(visible)]="display">
+    <app-location-show [(currentLan)]="location.Lan" [(currentLat)]="location.Lat"
+        (positionUpdated)="positionUpdate($event)"></app-location-show>
+</p-dialog>

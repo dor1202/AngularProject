@@ -1,0 +1,51 @@
+:host ::ng-deep .ui-listbox {
+	width: 20em;
+}
+
+#back {
+	position: absolute;
+	width: 1519px;
+	height: 722px;
+}
+
+#logo {
+	position: absolute;
+	top: 0px;
+	right: 6px;
+	width: 240px;
+	mix-blend-mode: multiply;
+}
+
+#navBtn {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 60px;
+	height: 60px;
+}
+
+#userBtn {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 40px;
+	height: 40px;
+}
+
+#searchDiv {
+	left: 30%;
+	position: absolute;
+}
+
+#wrondPasswordDiv {
+	color: red;
+	left: 41%;
+	position: absolute;
+}
+
+#lockIcon{
+	position: absolute;
+	top: 90%;
+	left: 83%;
+	background-color: wheat;
+}

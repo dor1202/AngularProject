@@ -1,0 +1,15 @@
+<div class="container" id="containerDiv">
+    <input type="checkbox" name="check1" id="check1" onclick="return false;" />
+    <label for="check1">Allow device camera</label>
+    <br />
+    <input type="checkbox" name="check2" id="check2" onclick="return false;" />
+    <label for="check2">Allow device location</label>
+    <br />
+    <input checked type="checkbox" name="check3" id="check3" onclick="return false;" />
+    <label for="check3">Allow private mode</label>
+    <br />
+    <input required minlength="5" maxlength="10" id="priveModeInp" type="number" placeholder="Private mode password" />
+    <div id="alertDiv" style="display: none; color: red;">Password must containe digits only between 5-10 chars</div>
+</div>
+
+<button pButton type="button" label="Next" (click)="ChangeScreen()"></button>

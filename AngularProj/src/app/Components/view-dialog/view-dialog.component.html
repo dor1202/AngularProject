@@ -1,0 +1,68 @@
+<mat-grid-list cols="4" rowHeight="100px">
+    <!-- Name and secription -->
+    <mat-grid-tile colspan="3" rowspan="1">
+        <div id="inputEditDiv">
+            <span id="nameSpan">
+                Name: {{name}}
+            </span>
+            <br />
+            <span id="descSpan">
+                Description: {{caption}}
+            </span>
+        </div>
+    </mat-grid-tile>
+    <!-- Image -->
+    <mat-grid-tile colspan="1" rowspan="2">
+        <img id="popupImg" [src]="imgSrc" />
+    </mat-grid-tile>
+    <!-- Favorite and Private -->
+    <mat-grid-tile colspan="1" rowspan="1">
+        <div>
+            <!-- Show filled icon -->
+            <ng-container *ngIf="favorite">
+                <button disabled id="favorite-input" pButton pRipple type="button" icon="pi pi-star"
+                    class="p-button-rounded p-button-text"></button>
+            </ng-container>
+            <!-- Show empty icon -->
+            <ng-container *ngIf="!favorite">
+                <button disabled id="favorite-input" pButton pRipple type="button" icon="pi pi-star-o"
+                    class="p-button-rounded p-button-text"></button>
+            </ng-container>
+            <label for="favorite-input">Favorite</label>
+        </div>
+
+        <div>
+            <!-- Show close icon -->
+            <ng-container *ngIf="privateMode">
+                <button disabled id="private-input" pButton pRipple type="button" icon="pi pi-lock"
+                    class="p-button-rounded p-button-text"></button>
+            </ng-container>
+            <!-- Show open icon -->
+            <ng-container *ngIf="!privateMode">
+                <button disabled id="private-input" pButton pRipple type="button" icon="pi pi-lock-open"
+                    class="p-button-rounded p-button-text"></button>
+            </ng-container>
+            <label for="favorite-input">privateMode</label>
+        </div>
+    </mat-grid-tile>
+    <!-- Categories and map -->
+    <mat-grid-tile colspan="2" rowspan="1">
+        <!-- Categories -->
+        <div id="categoriesDiv">categories:
+            <ng-container *ngFor="let item of categories">
+                <p-tag styleClass="p-mr-2" severity="success" [value]="item.name" [rounded]="true"></p-tag>
+            </ng-container>
+        </div>
+        <br />
+        <!-- Map -->
+        <div id="locationsDiv">location:
+            <button id="mapBtn" pButton pRipple type="button" icon="pi pi-map" (click)="display = true">Open
+                Map</button>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+<!-- Map dialog -->
+<p-dialog [modal]="true" [draggable]="false" [resizable]="false" style="display: ruby-text-container;" id="mapDiaog"
+    header="Map" [(visible)]="display">
+    <app-location-display [(currentLan)]="location.Lan" [(currentLat)]="location.Lat"></app-location-display>
+</p-dialog>

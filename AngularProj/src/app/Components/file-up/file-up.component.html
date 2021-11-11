@@ -1,0 +1,11 @@
+<img id="currentImg" src="../../../assets/1200px-Unknown_person.jpg" />
+<form [formGroup]="myForm" (ngSubmit)="submit()">
+    <div id="upDiv" class="form-group">
+        <label for="file">File</label>
+        <input formControlName="file" id="file" accept="image/*" type="file" class="form-control"
+            (change)="onFileChange($event)" />
+    </div>
+
+    <button id="upBtn" class="btn btn-primary" type="submit">Submit</button>
+</form>
+<div style="color: lightcoral;">Accept only jpeg and png!</div>

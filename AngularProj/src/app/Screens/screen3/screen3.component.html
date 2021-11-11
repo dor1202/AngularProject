@@ -1,0 +1,17 @@
+<form>
+    <div class="container">
+        <input required pInputText id="libName" placeholder="Library name" />
+        <br />
+        <input pInputText id="libDesc" placeholder="Description" />
+        <br />
+        <select (change)="selectChangeHandler($event)" name="picks" id="picks">
+            <option selected value="list">List</option>
+            <option value="grid">Grid</option>
+        </select>
+        <div id="alertDiv" style="position: absolute;
+        bottom: -107px; display: none; color: red;">Library name is required
+        </div>
+    </div>
+
+    <button pButton type="button" label="Next" (click)="ChangeScreen()"></button>
+</form>

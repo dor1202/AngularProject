@@ -1,0 +1,40 @@
+<mat-tab-group id="screen">
+
+    <!-- Online -->
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">open_in_browser</mat-icon>
+            Online image
+        </ng-template>
+
+        <app-web-up style="overflow: unset;"></app-web-up>
+
+    </mat-tab>
+
+    <!-- Local data -->
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">desktop_windows</mat-icon>
+            Local machine
+        </ng-template>
+
+        <app-file-up></app-file-up>
+
+    </mat-tab>
+
+    <!-- Camera -->
+    <mat-tab style="height: 451px;">
+        <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">camera_alt</mat-icon>
+            Web camera
+        </ng-template>
+
+        <app-camera-upload style="height: 451px; display: block;"></app-camera-upload>
+
+    </mat-tab>
+
+</mat-tab-group>
+
+<div class="doneBtn" id="doneBtn">
+    <button pButton type="button" label="Done" (click)="ChangeScreen()"></button>
+</div>

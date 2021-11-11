@@ -1,0 +1,43 @@
+div.gallery {
+  width: 971px;
+  height: 415px;
+  margin-top: 5px;
+}
+
+div.gallery img.gridImg {
+  width: 20%;
+  height: 181px;
+}
+
+div.gallery img.listImg {
+  width: 100%;
+  height: 481px;
+}
+
+.ng-star-inserted{
+  overflow-y: scroll;
+  height: inherit;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+#footerDiv{
+  width: 100px;
+}
+
+#searchDiv,#btnDiv{
+  left: 33%;
+  position: relative;
+  width: 456px;
+}
+
+#addBtn{
+  position: relative;
+  top: 0%;
+  left: 96.3%;
+  width: 40px;
+}
+

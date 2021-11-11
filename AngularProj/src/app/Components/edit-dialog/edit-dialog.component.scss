@@ -1,0 +1,40 @@
+  div.desc {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  #popupImg{
+    width: 150px;
+    height: 150px;
+  }
+  
+  #inputEditDiv{
+    margin-top: 20px;
+    display: flex;
+    margin-left: -40px;
+  }
+  
+  #descInput{
+    margin-left: 17px;
+  }
+  
+  #cancelBtn{
+    position: absolute;
+    left: 82%;
+  }
+  
+  #categoriesDiv{
+    position: fixed;
+  left: 219px;
+  }
+  
+  #locationsDiv{
+    position: fixed;
+    left: 219px;
+    bottom: 52px;
+    width: 291px;
+  }
+
+  #mapBtn{
+  width: 115px;
+  }

@@ -1,0 +1,128 @@
+<!-- Background image -->
+<img id="back" src="../assets/pexels-jessica-lewis-583846.jpg" />
+
+<!-- Side nav -->
+<p-sidebar [(visible)]="visibleSideNav" [baseZIndex]="10000">
+
+    <h1 style="font-weight:normal">Side nav</h1>
+    <div>
+        <p-button [disabled]="! sideNavButtonsAreValid" type="button" icon="pi pi-palette" (click)="toggelTheme()"
+            label="Toggel light/dark theme" styleClass="p-button-success"></p-button>
+    </div>
+    <div>
+        <p-button [disabled]="! sideNavButtonsAreValid" id="privateModeBtn" type="button" icon="pi pi-eye-slash"
+            (click)="openPrivatePasworDialog()" label="Enter/Exit private mode" styleClass="p-button-secondary">
+        </p-button>
+    </div>
+    <div>
+        <p-button [disabled]="! sideNavButtonsAreValid" id="editModeBtn" type="button" icon="pi pi-pencil"
+            (click)="toggelEditMode()" label="Toggel edit mode" styleClass="p-button-secondary">
+        </p-button>
+    </div>
+    <div>
+        <p-button [disabled]="! sideNavButtonsAreValid" id="editModeBtn" type="button" icon="pi pi-arrow-circle-down"
+            (click)="openEditCategoriesDialog()" label="Edit categories" styleClass="p-button-secondary">
+        </p-button>
+    </div>
+    <div>
+        <p-button type="button" icon="pi pi-info-circle" (click)="aboutBtn()" label="About"
+            styleClass="p-button-secondary">
+        </p-button>
+    </div>
+    <div>
+        <p-button type="button" icon="pi pi-sign-out" (click)="exitBtn()" label="Exit" styleClass="p-button-secondary">
+        </p-button>
+    </div>
+</p-sidebar>
+
+<!-- User side nav -->
+<p-sidebar [(visible)]="visibleUserSideNav" [baseZIndex]="10000">
+    <h1 style="font-weight:normal">User nav</h1>
+    <div>
+        <p-button [disabled]="! sideNavButtonsAreValid" id="displayModeBtn" type="button" icon="pi pi-th-large"
+            (click)="toggelListAndPortrait()" label="Show images in list/portrate" styleClass="p-button-success">
+        </p-button>
+    </div>
+    <div>
+        <p-button [disabled]="! sideNavButtonsAreValid" type="button" icon="pi pi-play" (click)="displaySlideShow()"
+            label="Start random slideshow" styleClass="p-button-secondary"></p-button>
+    </div>
+    <div>
+        <p-button type="button" icon="pi pi-users" disabled="true" (click)="visibleUserSideNav = false"
+            label="Share images" styleClass="p-button-secondary">
+        </p-button>
+    </div>
+    <div>
+        <p-button type="button" icon="pi pi-cloud-upload" disabled="true" (click)="visibleUserSideNav = false"
+            label="Sync to cloud" styleClass="p-button-secondary">
+        </p-button>
+    </div>
+</p-sidebar>
+
+<!-- Side nav button -->
+<p-button id="navBtn" type="button" (click)="visibleSideNav = true" icon="pi pi-align-justify"></p-button>
+
+<!-- User side nav button -->
+<button *ngIf="router.url != '/screen1'" id="userBtn" pButton pRipple type="button" (click)="visibleUserSideNav = true"
+    icon="pi pi-user" class="p-button-rounded p-button-info"></button>
+
+<!-- Sella logo -->
+<img id="logo" src="../assets/selaalbumhub.PNG" />
+
+<!-- About dialog -->
+<p-dialog [modal]="true" [draggable]="false" [resizable]="false" header="About the site"
+    [(visible)]="displayAboutDialog" [style]="{width: '50vw'}" [baseZIndex]="10000">
+    <p>Welcome to my angular project, created by dor schreiber.</p>
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="displayAboutDialog=false" label="Ok" styleClass="p-button-text">
+        </p-button>
+    </ng-template>
+</p-dialog>
+
+<!-- Edit categories dialog -->
+<p-dialog [modal]="true" [draggable]="false" [resizable]="false" header="Edit categories"
+    [(visible)]="displayEditCategoriesDialog" [style]="{width: '50vw'}" [baseZIndex]="10000">
+    <div style="height: 200px;">
+
+        <div id="searchDiv">
+
+            <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input pInputText id="addInp" [(ngModel)]="inpValue" />
+            </span>
+
+            <button pInputText placeholder="Add" (click)="updateCategories()">Add</button>
+
+        </div>
+
+        <p-multiSelect style="position: absolute; left: 36%;bottom: 51%;" [scrollHeight]=100 [options]="categoryList"
+            [(ngModel)]="selectedCategories" defaultLabel="Avalible categories" optionLabel="name" display="chip">
+        </p-multiSelect>
+
+    </div>
+
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="submitUpdatedCategories()" label="Ok" styleClass="p-button-text">
+        </p-button>
+    </ng-template>
+</p-dialog>
+
+<!-- Lock icon -->
+<i id="lockIcon" *ngIf="privateModeStatus" class="pi pi-lock"></i>
+
+<!-- Eneter private mode dialog -->
+<p-dialog [modal]="true" [draggable]="false" [resizable]="false" header="Enter Password"
+    [(visible)]="displayPrivateModeDialog" [style]="{width: '50vw'}" [baseZIndex]="10000">
+    <div style="height: 100px; align-content: center; display: grid;">
+        <input pInputText id="searchInp" [(ngModel)]="inpValue" />
+    </div>
+    <div id="wrondPasswordDiv" style="display: none;">Invalid Password!</div>
+
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="checkIfPasswordValid()" label="Ok" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-dialog>
+
+<!-- SlideShow -->
+<app-slide-show id="slideShowElement" *ngIf="SlideShowAvilable" style="display: none;">
+</app-slide-show>

@@ -1,0 +1,52 @@
+div.desc {
+	padding: 15px;
+	text-align: center;
+}
+
+#popupImg {
+	width: 150px;
+	height: 150px;
+}
+
+#inputEditDiv {
+	margin-top: 20px;
+	display: flex;
+	margin-left: -40px;
+}
+
+#cancelBtn {
+	position: absolute;
+	left: 82%;
+}
+
+#nameSpan {
+	overflow-y: scroll;
+	width: 170px;
+	right: 20%;
+	position: relative;
+	top: -23%;
+}
+
+#descSpan {
+	overflow-y: scroll;
+	width: 170px;
+	left: 10%;
+	position: relative;
+	top: -23%;
+}
+
+#categoriesDiv {
+	position: fixed;
+	left: 219px;
+}
+
+#locationsDiv {
+	position: fixed;
+	left: 219px;
+	bottom: 52px;
+	width: 291px;
+}
+
+#mapBtn {
+	width: 115px;
+}
